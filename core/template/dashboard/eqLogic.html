@@ -1,0 +1,69 @@
+<div class="eqLogic eqLogic-widget" data-version="dashboard" style="min-width: 140px;background-color: #background_color#;#style#" data-category="#category#" data-eqLogic_id="#id#" id="store#id#">
+    <span class="statusCmd" style="position : absolute;left : 5px; width : 30px;"></span>
+    <center class="widget-name">
+        <a href="#eqLink#" style="font-size : 1.5em;">#name#</a> <span style="font-size: 0.85em;position: relative;top:-2px;">#object_name#</span>
+    </center>
+	<center>
+      	<style type="text/css">
+      	  #store#id# .cmd a {
+      		width: 40px;
+      		height: 30px;
+      		font-size: 1.1em;
+      	  }
+      	</style>
+
+		<span style="width: 55px; display: inline-block; margin: 5px">
+    		<span id="iconCmd#id#" style="font-size: 3.5em; display: inline-block; position: relative;" ></span><br>
+    		<span class="cmd" data-type="action" data-subtype="other" data-cmd_id="#favorite#" style="margin-bottom: 5px; display: #favorite_display#">
+                <a class="btn btn-xs  action" style="margin-top : 3px;border: none;border-radius : 0px;color:black;">
+                    #favorite_name#
+                </a>
+            </span>
+        </span>
+		<span style="width: 45px; display: inline-block; margin: 5px">
+            <span class="cmd" data-type="action" data-subtype="other" data-cmd_id="#up#" style="margin-bottom: 5px; display: #up_display#">
+                <a class="btn btn-xs action" style="margin-top : 3px;border: none;border-radius : 0px;color:black;">
+                    #up_name#
+                </a>
+            </span><br>
+            <span class="cmd" data-type="action" data-subtype="other" data-cmd_id="#stop#" style="margin-bottom: 5px; display: #stop_display#">
+                <a class="btn btn-xs  action" style="margin-top : 3px;border: none;border-radius : 0px;color:black;">
+                    #stop_name#
+                </a>
+            </span>
+            <br>
+            <span class="cmd" data-type="action" data-subtype="other" data-cmd_id="#down#" style="margin-bottom: 5px; display: #down_display#">
+                <a class="btn btn-xs  action" style="margin-top : 3px;border: none;border-radius : 0px;color:black;">
+                    #down_name#
+                </a>
+            </span><br>
+    		</span>
+		</span>
+	</center>
+    <script>
+        $(function() {
+          if ('#state#' == '1') {
+            $('#iconCmd#id#').append('<i class="icon jeedom-volet-ouvert"></i>');
+          } else {
+              $('#iconCmd#id#').append('<i class="fa jeedom-volet-ferme"></i>');
+          }
+          if ($('.cmd[data-cmd_id="#favorite#"]:hidden').length) {
+            $('#iconCmd#id#').css('top', '-20px');
+          }
+
+          $('.cmd[data-cmd_id="#up#"]').on('click', function() {
+              jeedom.cmd.execute({id: '#up#'});
+
+            $('#iconCmd#id#').empty().append('<i class="icon jeedom-volet-ouvert"></i>');
+          });
+          $('.cmd[data-cmd_id="#down#"] ').on('click', function() {
+              jeedom.cmd.execute({id: '#down#'});
+            $('#iconCmd#id#').empty().append('<i class="icon jeedom-volet-ferme"></i>');
+          });
+          $('.cmd[data-cmd_id="#stop#"] ').on('click', function() {
+              jeedom.cmd.execute({id: '#stop#'});
+          });
+        });
+    </script>
+</div>
+

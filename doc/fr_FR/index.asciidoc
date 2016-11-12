@@ -1,0 +1,18 @@
+= Store
+
+Le plugin Store permet la création de périphériques de type store.
+
+Un périphérique store peut être créé pour les besoins suivants :
+
+* Avoir un seul et même visuel pour un store
+* exécuter l'action de monter
+* exécuter l'action de descendre
+* exécuter l'action de stopper
+* exécuter une action de favorit
+
+'''
+include::configuration.asciidoc[]
+
+'''
+
+include::changelog.asciidoc[]

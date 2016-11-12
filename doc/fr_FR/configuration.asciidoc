@@ -1,0 +1,54 @@
+== Configuration
+
+Le plugin ne nécessite aucune configuration, il faut juste l'activer.
+
+
+== Configuration des équipements
+
+La configuration des équipements store est accessible à partir du menu plugin > Programation:
+
+[icon="../images/plugin/tip.png"]
+[TIP]
+Comme à beaucoup d'endroits sur Jeedom, mettre la souris tout à gauche permet de faire apparaître un menu d'accès rapide (vous pouvez à partir de votre profil le laisser toujours visible).
+
+Vous retrouvez ici toute la configuration de votre équipement :
+
+* *Nom de l'équipement store* : nom de votre équipement store,
+* *Objet parent* : indique l'objet parent auquel appartient l'équipement,
+* *Catégorie* : les catégories de l'équipement (il peut appartenir à plusieurs catégories),
+* *Activer* : permet de rendre votre équipement actif,
+* *Visible* : le rend visible sur le dashboard,
+* *Commentaire* : vous permet de mettre des commentaires sur l'équipement.
+
+En haut à droite vous avez accès à 3 boutons :
+
+* *Importer équipement* : permet de dupliquer un équipement existant dans un store automatiquement (permet de gagner du temps pour scinder un équipement en 2 par exemple),
+* *Dupliquer* : permet de dupliquer l'équipement courant,
+* *Avancée (roues crantées)* : permet d'afficher les options avancées de l'équipement (commun à tous les plugins Jeedom).
+
+En-dessous vous retrouvez la liste des commandes :
+
+* le nom affiché sur le dashboard,
+* le type et le sous-type,
+* la valeur : permet de donner la valeur de la commande en fonction d'une autre commande, d'une clef (cas quand on fait un interrupteur store), d'un calcul,...
+* "Valeur de retour d'état" et "Durée avant retour d'état" : permet d'indiquer à Jeedom qu'après un changement sur l'information sa valeur doit revenir à Y, X min après le changement. Exemple : dans le cas d'un détecteur de présence qui n'émet que lors d'une détection de présence, il est utile de mettre par exemple 0 en valeur et 4 en durée, pour que 4 min après une détection de mouvement (et s'il n'y a en pas eu de nouvelles depuis) Jeedom remette la valeur de l'information à 0 (plus de mouvement détecté),
+* unité : unité de la donnée (peut être vide),
+* historiser : permet d'historiser la donnée,
+* afficher : permet d'afficher la donnée sur le dashboard,
+* événement : dans le cas du RFXcom cette case doit toujours être cochée car on ne peut pas interroger un module RFXcom,
+* min/max : bornes de la donnée (peuvent être vides),
+* configuration avancée (petites roues crantées) : permet d'afficher la configuration avancée de la commande (méthode d'historisation, widget...),
+* "Tester" : permet de tester la commande,
+* supprimer (signe -) : permet de supprimer la commande.
+
+
+== Affectation d'une valeur par API
+
+Il est possible de changer la valeur d'une information store par un appels API :
+
+----
+http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#&type=Store&id=#ID#&value=#value#
+----
+
+[NOTE]
+Attention à bien rajouter un /jeedom après \#IP_JEEDOM# si nécessaire

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+    <id>Store</id>
+    <name>Store</name>
+    <description>Plugin pour gérer des stores</description>
+    <licence>AGPL</licence>
+    <author>Nicolas Goubaux</author>
+    <require>2.3</require>
+    <category>programming</category>
+</info>
+
